@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from '../home.service';
+import { MenuItem } from '../model/menu';
 
 @Component({
   selector: 'app-navlist',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavlistComponent implements OnInit {
 
-  constructor() { }
+  constructor(private homeService: HomeService) { }
 
   ngOnInit() {
+    this.getMenus();
   }
 
+  menus: MenuItem[];
+
+  getMenus(): void {
+    this.homeService.getMenus().subscribe(items => this.menus=items);
+  }
 }

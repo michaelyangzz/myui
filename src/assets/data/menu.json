@@ -1,9 +1,9 @@
 [
   {
-    "url": "",
+    "url": "dashboard",
     "text": "Dashboard",
     "icon": "",
-    "isActive": false,
+    "isActive": true,
     "isOpend": false,
     "hasChild": true,
     "items": []
