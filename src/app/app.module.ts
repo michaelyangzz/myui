@@ -21,6 +21,7 @@ import { TopMenu2Component } from './top-menu2/top-menu2.component';
 import { TopMenu4Component } from './top-menu4/top-menu4.component';
 import { TopMenu5Component } from './top-menu5/top-menu5.component';
 import { ElementsComponent } from './elements/elements.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { ElementsComponent } from './elements/elements.component';
     TopMenu2Component,
     TopMenu4Component,
     TopMenu5Component,
-    ElementsComponent
+    ElementsComponent,
+    HomeComponent
   ],
   imports: [ BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
   providers: [HomeService],

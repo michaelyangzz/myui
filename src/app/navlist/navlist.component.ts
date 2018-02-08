@@ -28,22 +28,37 @@ export class NavlistComponent implements OnInit {
 
   clickMenu(eachmenu: MenuItem): void {
     if (eachmenu.hasChild) {
-
     }
     else {
+      this.activemenu(eachmenu);
       this.router.navigate([eachmenu.url]);
-
-      if (this.preMenu)
-        this.preMenu.isActive = false;
-
-      eachmenu.isActive = true;
-
-      this.preMenu = eachmenu;
-  
+      this.homeService.breaditems.splice(0, this.homeService.breaditems.length);
+      this.homeService.setBread(eachmenu);
+      this.homeService.breaditems.sort(function (a, b) { return a.id - b.id; });
       if (goJS.isNeedCloseNavList()) {
         goJS.CloseNavList();
       };
-
     }
+  }
+
+  private activemenu(eachmenu: MenuItem): void {
+    if (this.preMenu)
+      this.preMenu.isActive = false;
+    eachmenu.isActive = true;
+    this.preMenu = eachmenu;
+  }
+
+  private haschildactivemenu(eachmenu: MenuItem): boolean {
+
+    if (eachmenu.items.length) {
+      for (var i = 0; i < eachmenu.items.length; i++) {
+
+        if (eachmenu.items[i].isActive)
+          return true;
+        else
+          return this.haschildactivemenu(eachmenu.items[i]);
+      }
+    }
+    return false;
   }
 }

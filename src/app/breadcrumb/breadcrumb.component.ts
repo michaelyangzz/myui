@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { MenuItem } from '../model/menu';
+import { HomeService } from '../home.service';
 
 @Component({
   selector: 'app-breadcrumb',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BreadcrumbComponent implements OnInit {
 
-  constructor() { }
+  constructor(private home: HomeService) { }
 
   ngOnInit() {
+    this.items = this.home.breaditems;
   }
+
+  items: MenuItem[];
 
 }

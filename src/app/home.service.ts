@@ -16,11 +16,36 @@ export class HomeService {
 
   constructor(private http: HttpClient) { }
 
-
+  breaditems: MenuItem[] = [];
+  rets: MenuItem[] = [];
   private apihost = "http://localhost:4200/assets/data/";
+
+  setBread(item: MenuItem): void {
+
+    this.breaditems.push(item);
+
+    if (item.parentId && this.rets.length)
+      this.setBread(this.rets.filter(x => x.id === item.parentId)[0]);
+  }
+
+  lapingmenu(item: MenuItem): void {
+    this.rets.push(item);
+
+    if (item.items.length) {
+      for (var i = 0; i < item.items.length; i++) {
+        this.lapingmenu(item.items[i]);
+      }
+    }
+  }
 
   getMenus(): Observable<MenuItem[]> {
     return this.http.get<MenuItem[]>(this.apihost + "menu.json").pipe(
+      tap(items => {
+        this.rets.splice(0, this.rets.length);
+        for (var i = 0; i < items.length; i++) {
+          this.lapingmenu(items[i]);
+        }
+      }),
       catchError(this.handleError('getMenus', []))
     );
   }
