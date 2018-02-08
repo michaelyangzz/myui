@@ -1,11 +1,136 @@
 [
   {
-    "url": "dashboard",
+    "url": "/dashboard",
     "text": "Dashboard",
-    "icon": "",
-    "isActive": true,
-    "isOpend": false,
+    "icon": "menu-icon fa fa-desktop",
+    "isActive": false,
     "hasChild": true,
-    "items": []
+    "items": [
+      {
+        "url": "/dashboard",
+        "text": "Layouts",
+        "icon": "menu-icon fa fa-caret-right",
+        "isActive": false,
+        "hasChild": true,
+        "items": [
+          {
+            "url": "/topmenu",
+            "text": "Top Menu",
+            "icon": "menu-icon fa fa-caret-right",
+            "isActive": false,
+            "hasChild": false,
+            "items": []
+          },
+          {
+            "url": "/topmenu2",
+            "text": "Top Menu2",
+            "icon": "menu-icon fa fa-caret-right",
+            "isActive": false,
+            "hasChild": false,
+            "items": []
+          },
+          {
+            "url": "/topmenu",
+            "text": "Top Menu3",
+            "icon": "menu-icon fa fa-caret-right",
+            "isActive": false,
+            "hasChild": true,
+            "items": [
+              {
+                "url": "/topmenu4",
+                "text": "Top Menu4",
+                "icon": "menu-icon fa fa-leaf green",
+                "isActive": false,
+                "hasChild": false,
+                "items": []
+              },
+              {
+                "url": "/topmenu5",
+                "text": "Top Menu5",
+                "icon": "menu-icon fa fa-plus purple",
+                "isActive": false,
+                "hasChild": false,
+                "items": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "url": "/elements",
+        "text": "Elements",
+        "icon": "menu-icon fa fa-caret-right",
+        "isActive": false,
+        "hasChild": false,
+        "items": []
+      }
+    ]
+  },
+  {
+    "url": "/dashboard",
+    "text": "Dashboard",
+    "icon": "menu-icon fa fa-desktop",
+    "isActive": false,
+    "hasChild": true,
+    "items": [
+      {
+        "url": "/dashboard",
+        "text": "Layouts",
+        "icon": "menu-icon fa fa-caret-right",
+        "isActive": false,
+        "hasChild": true,
+        "items": [
+          {
+            "url": "/topmenu",
+            "text": "Top Menu",
+            "icon": "menu-icon fa fa-caret-right",
+            "isActive": false,
+            "hasChild": false,
+            "items": []
+          },
+          {
+            "url": "/topmenu2",
+            "text": "Top Menu2",
+            "icon": "menu-icon fa fa-caret-right",
+            "isActive": false,
+            "hasChild": false,
+            "items": []
+          },
+          {
+            "url": "/topmenu",
+            "text": "Top Menu3",
+            "icon": "menu-icon fa fa-caret-right",
+            "isActive": false,
+            "hasChild": true,
+            "items": [
+              {
+                "url": "/topmenu4",
+                "text": "Top Menu4",
+                "icon": "menu-icon fa fa-leaf green",
+                "isActive": false,
+                "hasChild": false,
+                "items": []
+              },
+              {
+                "url": "/topmenu5",
+                "text": "Top Menu5",
+                "icon": "menu-icon fa fa-plus purple",
+                "isActive": false,
+                "hasChild": false,
+                "items": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "url": "/elements",
+        "text": "Elements",
+        "icon": "menu-icon fa fa-caret-right",
+        "isActive": false,
+        "hasChild": false,
+        "items": []
+      }
+    ]
   }
 ]

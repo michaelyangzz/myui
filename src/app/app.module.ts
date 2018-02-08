@@ -16,6 +16,11 @@ import { AppRoutingModule } from './/app-routing.module';
 import { BlankComponent } from './blank/blank.component';
 import { HomeService } from './home.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { TopMenuComponent } from './top-menu/top-menu.component';
+import { TopMenu2Component } from './top-menu2/top-menu2.component';
+import { TopMenu4Component } from './top-menu4/top-menu4.component';
+import { TopMenu5Component } from './top-menu5/top-menu5.component';
+import { ElementsComponent } from './elements/elements.component';
 
 
 @NgModule({
@@ -29,7 +34,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     BreadcrumbComponent,
     NavSearchComponent,
     BlankComponent,
-    DashboardComponent
+    DashboardComponent,
+    TopMenuComponent,
+    TopMenu2Component,
+    TopMenu4Component,
+    TopMenu5Component,
+    ElementsComponent
   ],
   imports: [ BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
   providers: [HomeService],
