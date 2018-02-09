@@ -27,7 +27,7 @@ namespace myserver
 
             app.Use(async (context, next) =>
             {
-                await Task.Delay(1500);
+                await Task.Delay(3000);
                 await next.Invoke();
             });
 

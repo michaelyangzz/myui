@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { NgHttpLoaderModule } from 'ng-http-loader/ng-http-loader.module';
 
 
 import { AppComponent } from './app.component';
@@ -43,7 +44,7 @@ import { HomeComponent } from './home/home.component';
     ElementsComponent,
     HomeComponent
   ],
-  imports: [ BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule, NgHttpLoaderModule],
   providers: [HomeService],
   bootstrap: [AppComponent]
 })
