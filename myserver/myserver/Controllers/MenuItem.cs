@@ -12,6 +12,5 @@ namespace myserver.Controllers
         public string text { get; set; }
         public string url { get; set; }
         public string icon { get; set; }
-        public bool isActive { get; set; }
     }
 }

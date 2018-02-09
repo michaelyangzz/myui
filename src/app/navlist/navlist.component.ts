@@ -21,7 +21,7 @@ export class NavlistComponent implements OnInit {
   menus: MenuItem[];
 
   getMenus(): void {
-    this.homeService.getMenus().subscribe(items => this.menus = items);
+    this.homeService.getMenus().subscribe(items => this.menus = this.homeService.menuitems);
   }
 
   preMenu: MenuItem;

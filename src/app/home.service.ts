@@ -4,12 +4,7 @@ import { of } from 'rxjs/observable/of';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { MenuItem } from './model/menu';
-
-
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
-
+import { AppSetting } from './appsetting';
 
 @Injectable()
 export class HomeService {
@@ -18,7 +13,7 @@ export class HomeService {
 
   breaditems: MenuItem[] = [];
   rets: MenuItem[] = [];
-  private apihost = "http://localhost:4200/assets/data/";
+  menuitems: MenuItem[] = [];
 
   setBread(item: MenuItem): void {
 
@@ -28,26 +23,16 @@ export class HomeService {
       this.setBread(this.rets.filter(x => x.id === item.parentId)[0]);
   }
 
-  lapingmenu(item: MenuItem): void {
-    this.rets.push(item);
-
-    if (item.items.length) {
-      for (var i = 0; i < item.items.length; i++) {
-        this.lapingmenu(item.items[i]);
-      }
-    }
-  }
-
   getMenus(): Observable<MenuItem[]> {
-    return this.http.get<MenuItem[]>(this.apihost + "menu.json").pipe(
+    return this.http.get<MenuItem[]>(AppSetting.Apihost + "getmenus").pipe(
       tap(items => {
-        this.rets.splice(0, this.rets.length);
-        for (var i = 0; i < items.length; i++) {
-          this.lapingmenu(items[i]);
-
-          
-
-        }
+        this.rets = items;
+        items.forEach(function (value) {
+          value.isActive = false;
+          value.items = items.filter(x => x.parentId === value.id);
+          value.hasChild = value.items.length ? true : false;
+        });
+        this.menuitems = items.filter(x => x.parentId === null);
       }),
       catchError(this.handleError('getMenus', []))
     );
