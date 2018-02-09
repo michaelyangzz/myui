@@ -5,7 +5,6 @@ export class MenuItem {
   text: string;
   icon: string;
   isActive: boolean;
-  isOpened: boolean;
   hasChild: boolean;
   items: MenuItem[];
 }

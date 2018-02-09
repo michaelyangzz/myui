@@ -44,6 +44,9 @@ export class HomeService {
         this.rets.splice(0, this.rets.length);
         for (var i = 0; i < items.length; i++) {
           this.lapingmenu(items[i]);
+
+          
+
         }
       }),
       catchError(this.handleError('getMenus', []))

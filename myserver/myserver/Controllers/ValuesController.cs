@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace myserver.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     public class ValuesController : Controller
     {
         // GET api/values
@@ -14,6 +14,15 @@ namespace myserver.Controllers
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
+        }
+
+        [HttpGet]
+        public IEnumerable<MenuItem> GetMenus()
+        {
+            return new List<MenuItem>
+            {
+                new MenuItem() { }
+            };
         }
 
         // GET api/values/5
