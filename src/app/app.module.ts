@@ -23,7 +23,8 @@ import { TopMenu4Component } from './top-menu4/top-menu4.component';
 import { TopMenu5Component } from './top-menu5/top-menu5.component';
 import { ElementsComponent } from './elements/elements.component';
 import { HomeComponent } from './home/home.component';
-
+import { LoginComponent } from './login/login.component';
+import { GlobalHttpService } from './global-http.service';
 
 @NgModule({
   declarations: [
@@ -42,10 +43,11 @@ import { HomeComponent } from './home/home.component';
     TopMenu4Component,
     TopMenu5Component,
     ElementsComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule, NgHttpLoaderModule],
-  providers: [HomeService],
+  providers: [GlobalHttpService,HomeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

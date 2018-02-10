@@ -9,6 +9,7 @@ import { TopMenu5Component } from './top-menu5/top-menu5.component';
 import { ElementsComponent } from './elements/elements.component';
 import { HomeComponent } from './home/home.component';
 import { HomeService } from './home.service';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: 'blank', component: BlankComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'topmenu5', component: TopMenu5Component },
   { path: 'elements', component: ElementsComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/blank', pathMatch: 'full' }
 ];
 

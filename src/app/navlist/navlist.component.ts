@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HomeService } from '../home.service';
 import { MenuItem } from '../model/menu';
-
 declare var goJS;
+
 
 @Component({
   selector: 'app-navlist',
