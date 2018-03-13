@@ -1,5 +1,5 @@
 <ul class="nav nav-list">
-  <li *ngFor="let eachmenu of menus" [class.active]="eachmenu.isActive">
+  <li *ngFor="let eachmenu of homeService.menuitems" [class.active]="eachmenu.isActive">
     <a style="cursor:pointer;"
        (click)="clickMenu(eachmenu)"
        [class.dropdown-toggle]="eachmenu.hasChild">

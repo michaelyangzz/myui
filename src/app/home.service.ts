@@ -27,13 +27,15 @@ export class HomeService {
     return this.http.get<MenuItem[]>(AppSetting.Apihost + "getmenus", "getMenus")
       .pipe(
       tap(items => {
-        this.rets = items;
-        items.forEach(function (value) {
-          value.isActive = false;
-          value.items = items.filter(x => x.parentId === value.id);
-          value.hasChild = value.items.length ? true : false;
-        });
-        this.menuitems = items.filter(x => x.parentId === null);
+        if (items && items.length) {
+          this.rets = items;
+          items.forEach(function (value) {
+            value.isActive = false;
+            value.items = items.filter(x => x.parentId === value.id);
+            value.hasChild = value.items.length ? true : false;
+          });
+          this.menuitems = items.filter(x => x.parentId === null);
+        }
       })
       );
   }
@@ -41,5 +43,7 @@ export class HomeService {
   login(usr: string): Observable<number> {
     return this.http.post<number>(AppSetting.Apihost + "login", { u: usr }, "login");
   }
-
+  logout(): Observable<number> {
+    return this.http.post<number>(AppSetting.Apihost + "logout", { }, "logout");
+  }
 }

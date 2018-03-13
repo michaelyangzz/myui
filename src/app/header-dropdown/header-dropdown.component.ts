@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { HomeService } from '../home.service';
 
 @Component({
   selector: 'app-header-dropdown',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HeaderDropdownComponent implements OnInit {
 
-  constructor() { }
+  constructor(private home: HomeService) { }
 
   ngOnInit() {
   }
@@ -17,4 +18,12 @@ export class HeaderDropdownComponent implements OnInit {
   @Input() isShowBell: boolean;
 
   @Input() isShowEmail: boolean;
+
+  Logout(): void {
+    this.home.logout().subscribe(r => {
+      if (r === 1) {
+        alert('logout hahah');
+      }
+    });
+  }
 }

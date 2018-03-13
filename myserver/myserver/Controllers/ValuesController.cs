@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 namespace myserver.Controllers
 {
     [Route("api/[controller]/[action]")]
+    [Authorize]
     public class ValuesController : Controller
     {
         // GET api/values
@@ -25,6 +26,7 @@ namespace myserver.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<int> Login([FromBody]A u)
         {
             if (User.Identity.IsAuthenticated)
@@ -32,27 +34,27 @@ namespace myserver.Controllers
 
             if (u.u != "123")
                 return 0;
-            
+
             var claims = new List<Claim>
-                 {
-                       new Claim(ClaimTypes.Name, "1@qq.com"),
-                       new Claim("FullName", "yb")
-                 };
+                {
+                 new Claim(ClaimTypes.Name, "123@qq.com"),
+                 new Claim("FullName", "YangBei")
+                };
 
             var claimsIdentity = new ClaimsIdentity(
                 claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
             var authProperties = new AuthenticationProperties
             {
-                AllowRefresh = true,
+                //AllowRefresh = <bool>,
                 // Refreshing the authentication session should be allowed.
 
-                ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(60),
+                ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(5),
                 // The time at which the authentication ticket expires. A 
                 // value set here overrides the ExpireTimeSpan option of 
                 // CookieAuthenticationOptions set with AddCookie.
 
-                IsPersistent = true,
+                IsPersistent = true
                 // Whether the authentication session is persisted across 
                 // multiple requests. Required when setting the 
                 // ExpireTimeSpan option of CookieAuthenticationOptions 
@@ -62,24 +64,32 @@ namespace myserver.Controllers
                 //IssuedUtc = <DateTimeOffset>,
                 // The time at which the authentication ticket was issued.
 
-                RedirectUri = "blank"
+                //RedirectUri = <string>
                 // The full path or absolute URI to be used as an http 
                 // redirect response value.
             };
 
             await HttpContext.SignInAsync(
                 CookieAuthenticationDefaults.AuthenticationScheme,
-                new ClaimsPrincipal(claimsIdentity));
-
+                new ClaimsPrincipal(claimsIdentity),
+                authProperties);
 
             return 1;
         }
 
+        [HttpPost]
+        public async Task<int> Logout()
+        {
+            await HttpContext.SignOutAsync(
+    CookieAuthenticationDefaults.AuthenticationScheme);
+
+            return 1;
+        }
 
         [HttpGet]
         public IEnumerable<MenuItem> GetMenus()
         {
-            return new List<MenuItem>
+                return new List<MenuItem>
             {
                 new MenuItem() { id=1,parentId=null, icon="menu-icon fa fa-desktop", text="Dashboard", url="/dashboard" },
                 new MenuItem() { id=2,parentId=1, icon="menu-icon fa fa-caret-right",  text="Layouts", url="/dashboard" },

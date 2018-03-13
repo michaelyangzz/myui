@@ -13,7 +13,7 @@ export class GlobalHttpService {
   constructor(private http: HttpClient, private router: Router) { }
 
   get<T>(url: string, operation: string): Observable<T> {
-    return this.http.get<T>(url).pipe(
+    return this.http.get<T>(url, AppSetting.httpOptions).pipe(
       catchError(this.handleError<T>(operation))
     );
   }
@@ -30,7 +30,8 @@ export class GlobalHttpService {
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
 
-      this.router.navigate(['login']);
+      if (error.status == 401)
+        this.router.navigate(['login']);
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };

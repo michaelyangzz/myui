@@ -12,16 +12,17 @@ declare var goJS;
 })
 export class NavlistComponent implements OnInit {
 
-  constructor(private homeService: HomeService, private router: Router) { }
+  constructor(public homeService: HomeService, private router: Router) { }
 
   ngOnInit() {
     this.getMenus();
   }
 
-  menus: MenuItem[];
+  //menus: MenuItem[];
 
   getMenus(): void {
-    this.homeService.getMenus().subscribe(items => this.menus = this.homeService.menuitems);
+    //this.homeService.getMenus().subscribe(items => this.menus = this.homeService.menuitems);
+    this.homeService.getMenus().subscribe();
   }
 
   preMenu: MenuItem;
