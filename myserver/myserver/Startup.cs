@@ -38,6 +38,8 @@ namespace myserver
             app.Use(async (context, next) =>
             {
                 await Task.Delay(1000);
+
+
                 await next.Invoke();
             });
 
