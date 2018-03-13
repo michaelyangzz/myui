@@ -22,13 +22,17 @@ namespace myserver
             services.AddMvc();
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                .AddCookie(options=> {
-                    options.Events.OnRedirectToLogin = async context => {
+                .AddCookie(
+                options =>
+                {
+                    options.Events.OnRedirectToLogin = async context =>
+                    {
 
                         context.Response.StatusCode = 401;
                         await Task.CompletedTask;
                     };
-                });
+                }
+                );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
