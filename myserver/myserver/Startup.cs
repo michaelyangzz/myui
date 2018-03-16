@@ -38,12 +38,9 @@ namespace myserver
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-
             app.Use(async (context, next) =>
             {
-                await Task.Delay(1000);
-
-
+                await Task.Delay(500);
                 await next.Invoke();
             });
 
@@ -54,6 +51,7 @@ namespace myserver
 
             app.UseCors(builder => builder.WithOrigins("http://localhost:4200")
             .AllowAnyHeader().AllowCredentials().AllowAnyMethod());
+
             app.UseAuthentication();
             app.UseMvc();
         }
