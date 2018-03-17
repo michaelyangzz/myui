@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Spinkit } from 'ng-http-loader/spinkits';
+//import { Spinkit } from 'ng-http-loader/spinkits';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,7 @@ import { Spinkit } from 'ng-http-loader/spinkits';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  spinkit = Spinkit;
+  //spinkit = Spinkit;
 
 //skChasingDots: string;
 //skCubeGrid: string;
