@@ -47,7 +47,7 @@ import { GlobalHttpService } from './global-http.service';
     LoginComponent
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule, NgHttpLoaderModule],
-  providers: [GlobalHttpService,HomeService],
+  providers: [GlobalHttpService, HomeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
