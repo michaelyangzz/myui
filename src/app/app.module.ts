@@ -25,6 +25,7 @@ import { ElementsComponent } from './elements/elements.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { GlobalHttpService } from './global-http.service';
+import { HeroFormComponent } from './hero-form/hero-form.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { GlobalHttpService } from './global-http.service';
     TopMenu5Component,
     ElementsComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    HeroFormComponent
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule, NgHttpLoaderModule],
   providers: [GlobalHttpService, HomeService],

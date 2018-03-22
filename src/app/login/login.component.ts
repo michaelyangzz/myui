@@ -7,17 +7,17 @@ import { HomeService } from '../home.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  userName: string;
 
   constructor(private home: HomeService) { }
 
   ngOnInit() {
-    this.userName = "123";
+    this.userName = '123';
   }
 
-  userName: string;
 
   login(): void {
- 
+
     this.home.login(this.userName).subscribe(r => {
       if (r === 1) {
         alert('login ssssss');
