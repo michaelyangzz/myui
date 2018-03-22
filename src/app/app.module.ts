@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgHttpLoaderModule } from 'ng-http-loader/ng-http-loader.module';
 
 
@@ -26,6 +26,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { GlobalHttpService } from './global-http.service';
 import { HeroFormComponent } from './hero-form/hero-form.component';
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 
 @NgModule({
   declarations: [
@@ -46,9 +47,10 @@ import { HeroFormComponent } from './hero-form/hero-form.component';
     ElementsComponent,
     HomeComponent,
     LoginComponent,
-    HeroFormComponent
+    HeroFormComponent,
+    HeroDetailComponent
   ],
-  imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule, NgHttpLoaderModule],
+  imports: [BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule, HttpClientModule, NgHttpLoaderModule],
   providers: [GlobalHttpService, HomeService],
   bootstrap: [AppComponent]
 })
