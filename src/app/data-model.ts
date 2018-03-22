@@ -34,4 +34,10 @@ export const heroes: Hero[] = [
     },
 ];
 
-export const states = ['CA', 'MD', 'OH', 'VA'];
+export const states =
+    [
+        'CA',
+        'MD',
+        'OH',
+        'VA'
+    ];
