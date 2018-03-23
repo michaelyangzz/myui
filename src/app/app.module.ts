@@ -27,6 +27,8 @@ import { LoginComponent } from './login/login.component';
 import { GlobalHttpService } from './global-http.service';
 import { HeroFormComponent } from './hero-form/hero-form.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { HeroListComponent } from './hero-list/hero-list.component';
+import { HeroService } from './hero.service';
 
 @NgModule({
   declarations: [
@@ -48,10 +50,11 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
     HomeComponent,
     LoginComponent,
     HeroFormComponent,
-    HeroDetailComponent
+    HeroDetailComponent,
+    HeroListComponent
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule, HttpClientModule, NgHttpLoaderModule],
-  providers: [GlobalHttpService, HomeService],
+  providers: [GlobalHttpService, HomeService, HeroService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
