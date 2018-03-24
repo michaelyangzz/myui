@@ -1,17 +1,28 @@
 <h2>Hero Detail</h2>
 <button (click)="addLair()" type="button">Add a Secret Lair</button>
-<h4>Name change log</h4>
-<div *ngFor="let name of nameChangeLog">{{name}}</div>
+<!-- <h4>Name change log</h4>
+<div *ngFor="let name of nameChangeLog">{{name}}</div> -->
 
 <form [formGroup]="heroForm" (ngSubmit)="onSubmit()">
   <div style="margin-bottom: 1em">
-    <button type="submit" [disabled]="heroForm.pristine" class="btn btn-success">Save</button> &nbsp;
-    <button type="button" (click)="revert()" [disabled]="heroForm.pristine" class="btn btn-danger">Revert</button>
+    <button type="submit" [disabled]="heroForm.invalid || heroForm.pristine || heroForm.pending" class="btn btn-success">Save</button> &nbsp;
+    <button type="button" (click)="revert()" [disabled]="heroForm.invalid || heroForm.pristine || heroForm.pending" class="btn btn-danger">Revert</button>
   </div>
   <div class="form-group">
     <label class="center-block">Name:
       <input class="form-control" formControlName="name">
     </label>
+    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+      <div *ngIf="name.errors.required">
+        Name is required.
+      </div>
+      <div *ngIf="name.errors.minlength">
+        Name must be at least 4 characters long.
+      </div>
+      <div *ngIf="name.errors.forbiddenName">
+        Name cannot be bob.
+      </div>
+    </div>
   </div>
   <div formArrayName="secretLairs" class="well well-lg">
     <div *ngFor="let address of secretLairs.controls; let i=index" [formGroupName]="i">
@@ -59,5 +70,3 @@
 
 <p>Form value: {{ heroForm.value | json }}</p>
 <p>Form ss: {{ heroForm.status | json }}</p>
-<p>Name value: {{ heroForm.get('name').value }}</p>
-<p>Street value: {{ heroForm.get('address.street').value}}</p>

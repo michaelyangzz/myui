@@ -29,6 +29,7 @@ import { HeroFormComponent } from './hero-form/hero-form.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroListComponent } from './hero-list/hero-list.component';
 import { HeroService } from './hero.service';
+import { ForbiddenNameDirective } from './forbidden-name.directive';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { HeroService } from './hero.service';
     LoginComponent,
     HeroFormComponent,
     HeroDetailComponent,
-    HeroListComponent
+    HeroListComponent,
+    ForbiddenNameDirective
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule, HttpClientModule, NgHttpLoaderModule],
   providers: [GlobalHttpService, HomeService, HeroService],

@@ -2,6 +2,7 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validator, Validators, FormArray } from '@angular/forms';
 import { states, Address, Hero } from '../data-model';
 import { HeroService } from '../hero.service';
+import { forbiddenNameValidator } from '../forbidden-name.directive';
 @Component({
   selector: 'app-hero-detail',
   templateUrl: './hero-detail.component.html',
@@ -26,7 +27,10 @@ export class HeroDetailComponent implements OnInit, OnChanges {
 
   createForm() {
     this.heroForm = this.fb.group({
-      name: ['', Validators.required],
+      name: ['', [
+        Validators.required,
+        Validators.minLength(4)
+      ], forbiddenNameValidator(/bob/i)],
       secretLairs: this.fb.array([]),
       power: '',
       sidekick: ''
@@ -87,4 +91,8 @@ export class HeroDetailComponent implements OnInit, OnChanges {
     this.rebuildForm();
   }
   revert() { this.rebuildForm(); }
+
+  get name() { return this.heroForm.get('name'); }
+
+  get power() { return this.heroForm.get('power'); }
 }
