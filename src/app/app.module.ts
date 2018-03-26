@@ -30,6 +30,7 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroListComponent } from './hero-list/hero-list.component';
 import { HeroService } from './hero.service';
 import { ForbiddenNameDirective } from './forbidden-name.directive';
+import { EchartsBarDirective } from './echarts/echarts-bar.directive';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { ForbiddenNameDirective } from './forbidden-name.directive';
     HeroFormComponent,
     HeroDetailComponent,
     HeroListComponent,
-    ForbiddenNameDirective
+    ForbiddenNameDirective,
+    EchartsBarDirective
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule, HttpClientModule, NgHttpLoaderModule],
   providers: [GlobalHttpService, HomeService, HeroService],
