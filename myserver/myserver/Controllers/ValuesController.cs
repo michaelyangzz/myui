@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 namespace myserver.Controllers
 {
     [Route("api/[controller]/[action]")]
-    [Authorize]
     public class ValuesController : Controller
     {
         // GET api/values

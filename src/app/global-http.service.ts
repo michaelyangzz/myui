@@ -30,8 +30,10 @@ export class GlobalHttpService {
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
 
-      if (error.status == 401)
+      if (error.status === 401) {
         this.router.navigate(['login']);
+      }
+
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
